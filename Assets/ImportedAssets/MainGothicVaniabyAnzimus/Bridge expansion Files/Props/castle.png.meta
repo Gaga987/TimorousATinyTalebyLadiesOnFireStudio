@@ -199,9 +199,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      banner: 2043738051
       castle_entrance: 1415557859
       castle_wall: -1052250243
-      banner: 2043738051
       castle_window: -1786772195
   spritePackingTag: 
   pSDRemoveMatte: 0
