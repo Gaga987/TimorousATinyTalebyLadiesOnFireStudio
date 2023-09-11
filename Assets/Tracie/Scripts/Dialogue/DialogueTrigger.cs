@@ -11,7 +11,11 @@ public class DialogueTrigger : MonoBehaviour
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON; 
+
+
     private bool playerInRange;
+    private KeyCode interactKey = KeyCode.I;
+
 
     private void Awake()
     {
@@ -28,6 +32,7 @@ public class DialogueTrigger : MonoBehaviour
     {
          if(collider.gameObject.tag == "Player")
         {
+
             playerInRange = true; 
         }
     }
@@ -44,6 +49,11 @@ public class DialogueTrigger : MonoBehaviour
         if(playerInRange)
         {
             visualCue.SetActive(true);
+            if(Input.GetKeyDown(interactKey))
+                // REFERENCE ISSUE  if(Interactor.GetInstance().GetInteractPressed())
+                {
+                Debug.Log(inkJSON.text); 
+                 }
         }
         else
         {
