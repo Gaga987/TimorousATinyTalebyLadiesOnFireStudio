@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,15 +22,20 @@ public  class Interactor : MonoBehaviour, IInteract
     }
     [Header("Interactor Configurations")]
     [SerializeField] private GameObject player;
-    [SerializeField] private bool isInteractPressed; 
+    [SerializeField] private bool isInteractPressed;
+    [SerializeField] private bool isSubmitPressed; 
 
 
     private KeyCode interactKey = KeyCode.I;
+    // not ideal, would prefer to reference on image click 
+    private KeyCode submitKey = KeyCode.S; 
+
 
  
     private void Update()
     {
-        GetInteractPressed(); 
+        GetInteractPressed();
+        GetSubmitPressed();
     }
 /// <summary>
 /// THIS WORKS BUT SHOULD RETURN FALSE OTHERWISE INSTEAD OF GKU BECAUSE
@@ -46,6 +52,20 @@ public  class Interactor : MonoBehaviour, IInteract
         {
             isInteractPressed = false; 
         }
+        // return?
     }
-  
+
+    public void GetSubmitPressed()
+    {
+        if (Input.GetKeyDown(submitKey))
+        {
+            isSubmitPressed = true;
+            Debug.Log("Submit engaged");
+        }
+        if (Input.GetKeyUp(submitKey))
+        {
+            isSubmitPressed = false;
+        }
+        // return?
+    }
 }
