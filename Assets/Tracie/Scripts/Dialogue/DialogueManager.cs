@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
         }
         // handle continuing to the next line in the dialogue when submit is pressed 
        // exhibit b 
+       //double check  prevents the story from continuing if there are choices 
         if( currentStory.currentChoices.Count == 0 && Input.GetKeyDown(submitKey))
         {
             ContinueStory(); 
@@ -76,9 +77,12 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = ""; 
     }
 
-
+    /// <summary>
+    ///  
+    /// </summary>
     private void ContinueStory()
     {
+        // always returns false if there are choices but havent been selected 
         if (currentStory.canContinue)
         {
             
@@ -152,6 +156,7 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice( int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex); 
+        // shouldnt need register on submit 
         ContinueStory();
     }
 }
