@@ -23,12 +23,14 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         FlipSprite();
-        Jump(); 
- 
+        Jump();
+     
     }
 
     private void FixedUpdate()
     {
+        
+ 
         playerRB.velocity = new Vector2(horizontalInput * moveSpeed, playerRB.velocity.y);
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -55,6 +57,16 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRB.velocity = new Vector2(playerRB.velocity.x, jumpPower);
             isJumping = true;
+        }
+    }
+    /// <summary>
+    ///  not working atm, called in U || FU
+    /// </summary>
+    void FreezePlayerMovementDuringDialogue()
+    {
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
         }
     }
     

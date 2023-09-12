@@ -21,7 +21,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
 
     private Story currentStory;
-    private bool dialogueIsPlaying;
+    private float waitFor = 0.2f; 
+    // readonly
+    public bool dialogueIsPlaying { get; private set; }
 
     private KeyCode submitKey = KeyCode.S; 
     private void Start()
@@ -56,8 +58,9 @@ public class DialogueManager : MonoBehaviour
     /// <summary>
     ///  empty ink json file passed in 
     /// </summary>
-    private void ExitDialogueMode()
+    private IEnumerator ExitDialogueMode()
     {
+        yield return new WaitForSeconds(waitFor); 
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = ""; 
@@ -73,7 +76,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            ExitDialogueMode();
+            StartCoroutine(ExitDialogueMode()); 
         }
     }
 }

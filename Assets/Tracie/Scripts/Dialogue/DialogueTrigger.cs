@@ -46,7 +46,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private void ShowVisualCue()
     {
-        if(playerInRange)
+        // does not allow player to interact and throw off dialogue loop after press, allowing only submit by extension
+        if(playerInRange &&  !DialogueManager.GetInstance().dialogueIsPlaying)
         {
             visualCue.SetActive(true);
             // exhibit a 
