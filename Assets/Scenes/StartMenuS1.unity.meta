@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Scenes/StartMenuS1.unity.meta
 guid: cc682d6183d1fdb4bb62143f994f7513
+=======
+guid: 104b0d14871d44f4881963af94f49350
+timeCreated: 1584591611
+licenseType: Store
+>>>>>>> Stashed changes:Assets/Dragana/Scenes/Scene1.unity.meta
 DefaultImporter:
-  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
