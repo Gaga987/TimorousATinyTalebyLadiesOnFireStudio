@@ -44,8 +44,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+
         // return right away if dialogue isnt playing
-        if(!dialogueIsPlaying)
+        if (!dialogueIsPlaying)
         {
             return; 
         }
